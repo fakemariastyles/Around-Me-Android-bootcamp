@@ -19,7 +19,7 @@ class PlaceService(private val networkManager: NetworkManager) {
     }
 
     companion object {
-        const val URL_FEATURED = "https://restapis.xyz/around-me/v1/featured"
-        const val URL_PLACE_DETAIL = "https://restapis.xyz/around-me/v1/place/"
+        const val URL_FEATURED = "http://restapis.xyz/around-me/v1/featured"
+        const val URL_PLACE_DETAIL = "http://restapis.xyz/around-me/v1/place/"
     }
 }
