@@ -8,9 +8,10 @@ import com.workshop.aroundme.data.model.PlaceDetailEntity
 import com.workshop.aroundme.data.model.PlaceEntity
 import com.workshop.aroundme.local.datasource.PlaceLocalDataSource
 import com.workshop.aroundme.remote.datasource.PlaceRemoteDataSource
+import javax.inject.Inject
 import kotlin.concurrent.thread
 
-class PlaceRepository(
+class PlaceRepository @Inject constructor(
     private val placeLocalDataSource: PlaceLocalDataSource,
     private val placeRemoteDataSource: PlaceRemoteDataSource
 ) {

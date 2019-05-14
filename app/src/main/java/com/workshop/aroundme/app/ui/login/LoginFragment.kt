@@ -11,11 +11,21 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.workshop.aroundme.R
-import com.workshop.aroundme.app.Injector
+import com.workshop.aroundme.app.MyApp
 import com.workshop.aroundme.app.ui.home.HomeFragment
 import com.workshop.aroundme.data.model.UserEntity
+import com.workshop.aroundme.data.repository.UserRepository
+import javax.inject.Inject
 
 class LoginFragment : Fragment() {
+
+    @Inject
+    lateinit var userRepository: UserRepository
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        MyApp.component.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +47,6 @@ class LoginFragment : Fragment() {
                 && passwordEditText.text.isNotEmpty() && passwordEditText.text.toString() == "1234"
             ) {
 
-                val userRepository = Injector.provideUserRepository(view.context)
                 val user = UserEntity(usernameEditText.text.toString())
                 userRepository.login(user)
 
