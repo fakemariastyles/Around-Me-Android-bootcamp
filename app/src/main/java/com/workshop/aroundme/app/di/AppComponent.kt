@@ -2,7 +2,7 @@ package com.workshop.aroundme.app.di
 
 import com.workshop.aroundme.app.MainActivity
 import com.workshop.aroundme.app.ui.detail.DetailFragment
-import com.workshop.aroundme.app.ui.home.HomeFragment
+import com.workshop.aroundme.app.ui.home.view.HomeFragment
 import com.workshop.aroundme.app.ui.login.LoginFragment
 import com.workshop.aroundme.app.ui.starred.StarredFragment
 import dagger.Component

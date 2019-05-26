@@ -12,7 +12,7 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.workshop.aroundme.R
 import com.workshop.aroundme.app.MyApp
-import com.workshop.aroundme.app.ui.home.HomeFragment
+import com.workshop.aroundme.app.ui.home.view.HomeFragment
 import com.workshop.aroundme.data.model.UserEntity
 import com.workshop.aroundme.data.repository.UserRepository
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.workshop.aroundme.app.ui.home
+package com.workshop.aroundme.app.ui.home.view
 
 import android.view.View
 import android.widget.ImageView
@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.workshop.aroundme.R
+import com.workshop.aroundme.app.ui.home.OnHomePlaceItemClickListener
 import com.workshop.aroundme.data.model.PlaceEntity
 
 class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
