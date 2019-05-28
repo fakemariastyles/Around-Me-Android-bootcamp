@@ -5,17 +5,23 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.workshop.aroundme.R
-import com.workshop.aroundme.app.ui.home.HomeFragment
+import com.workshop.aroundme.app.ui.home.view.HomeFragment
 import com.workshop.aroundme.app.ui.login.LoginFragment
 import com.workshop.aroundme.app.ui.starred.StarredFragment
+import com.workshop.aroundme.data.repository.UserRepository
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var userRepository: UserRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userRepository = Injector.provideUserRepository(this)
+        MyApp.component.inject(this)
+
         if (userRepository.isLoggedIn()) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.content_frame, HomeFragment())

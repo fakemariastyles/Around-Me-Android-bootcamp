@@ -1,9 +1,10 @@
-package com.workshop.aroundme.app.ui.home
+package com.workshop.aroundme.app.ui.home.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.workshop.aroundme.R
+import com.workshop.aroundme.app.ui.home.OnHomePlaceItemClickListener
 import com.workshop.aroundme.data.model.ParentCategoryEntity
 import com.workshop.aroundme.data.model.PlaceEntity
 

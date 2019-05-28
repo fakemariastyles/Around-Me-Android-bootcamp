@@ -10,8 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.workshop.aroundme.R
-import com.workshop.aroundme.app.Injector
+import com.workshop.aroundme.app.MyApp
 import com.workshop.aroundme.data.model.PlaceDetailEntity
+import com.workshop.aroundme.data.repository.PlaceRepository
+import javax.inject.Inject
 
 class DetailFragment : Fragment() {
 
@@ -19,8 +21,12 @@ class DetailFragment : Fragment() {
     private var recyclerView: RecyclerView? = null
     private var loading: View? = null
 
+    @Inject
+    lateinit var placeRepository: PlaceRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        MyApp.component.inject(this)
 
         slug = arguments?.getString(KEY_SLUG)
     }
@@ -46,8 +52,7 @@ class DetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         slug?.let { mySlug ->
-            val repository = Injector.providePlaceRepository(requireContext())
-            repository.getPlaceDetail(mySlug, ::onDetailReady)
+            placeRepository.getPlaceDetail(mySlug, ::onDetailReady)
         } ?: run {
             Toast.makeText(requireContext(), "Slug must not be null", Toast.LENGTH_LONG).show()
         }
