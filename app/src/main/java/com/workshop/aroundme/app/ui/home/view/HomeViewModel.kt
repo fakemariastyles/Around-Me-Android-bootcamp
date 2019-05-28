@@ -37,4 +37,8 @@ class HomeViewModel @Inject constructor(
             }, {})
     }
 
+    fun onItemStarred(placeEntity: PlaceEntity){
+        placeRepository.starPlace(placeEntity)
+    }
+
 }

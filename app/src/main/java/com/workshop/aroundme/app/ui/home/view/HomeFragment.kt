@@ -67,6 +67,6 @@ class HomeFragment : Fragment(), OnHomePlaceItemClickListener {
     }
 
     override fun onItemStarred(placeEntity: PlaceEntity) {
-//        placeRepository.starPlace(placeEntity)
+        viewModel.onItemStarred(placeEntity)
     }
 }
