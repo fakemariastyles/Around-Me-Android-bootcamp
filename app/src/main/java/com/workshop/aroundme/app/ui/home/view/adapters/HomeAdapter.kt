@@ -1,10 +1,11 @@
-package com.workshop.aroundme.app.ui.home.view
+package com.workshop.aroundme.app.ui.home.view.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.workshop.aroundme.R
 import com.workshop.aroundme.app.ui.home.OnHomePlaceItemClickListener
+import com.workshop.aroundme.app.ui.home.view.viewholders.HomeViewHolder
 import com.workshop.aroundme.data.model.PlaceEntity
 
 class HomeAdapter(

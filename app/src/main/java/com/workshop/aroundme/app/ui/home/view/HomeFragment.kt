@@ -13,6 +13,7 @@ import com.workshop.aroundme.R
 import com.workshop.aroundme.app.MyApp
 import com.workshop.aroundme.app.ui.detail.DetailFragment
 import com.workshop.aroundme.app.ui.home.OnHomePlaceItemClickListener
+import com.workshop.aroundme.app.ui.home.view.adapters.ModernHomeAdapter
 import com.workshop.aroundme.data.model.ParentCategoryEntity
 import com.workshop.aroundme.data.model.PlaceEntity
 import com.workshop.aroundme.data.repository.CategoryRepository
