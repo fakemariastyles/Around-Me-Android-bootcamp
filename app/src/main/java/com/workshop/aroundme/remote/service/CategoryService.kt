@@ -12,6 +12,6 @@ class CategoryService(private val networkManager: NetworkManager) {
     }
 
     companion object {
-        const val URL_CATEGORIES = "https://restapis.xyz/around-me/v1/category"
+        const val URL_CATEGORIES = "http://restapis.xyz/around-me/v1/category"
     }
 }
