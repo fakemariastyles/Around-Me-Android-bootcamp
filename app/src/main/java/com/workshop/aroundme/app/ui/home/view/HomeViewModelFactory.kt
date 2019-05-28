@@ -2,10 +2,15 @@ package com.workshop.aroundme.app.ui.home.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.workshop.aroundme.data.repository.CategoryRepository
+import com.workshop.aroundme.data.repository.PlaceRepository
 
-class HomeViewModelFactory : ViewModelProvider.Factory{
+class HomeViewModelFactory(
+    private val categoryRepository: CategoryRepository
+    , private val placeRepository: PlaceRepository
+) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return HomeViewModel(categoryRepository,placeRepository) as T
     }
 
 }

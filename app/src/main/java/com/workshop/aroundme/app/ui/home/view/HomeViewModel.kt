@@ -7,6 +7,8 @@ import com.workshop.aroundme.data.model.ParentCategoryEntity
 import com.workshop.aroundme.data.model.PlaceEntity
 import com.workshop.aroundme.data.repository.CategoryRepository
 import com.workshop.aroundme.data.repository.PlaceRepository
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(
@@ -20,7 +22,19 @@ class HomeViewModel @Inject constructor(
     var categories: LiveData<List<ParentCategoryEntity>> = _categories
 
     fun onActivityCreated() {
-        TODO()
+        placeRepository.getFeaturedPlaces()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSuccess {
+                _places.postValue(it)
+            }
+            .observeOn(Schedulers.io())
+            .flatMap {
+                categoryRepository.getCategories()
+            }.observeOn(AndroidSchedulers.mainThread())
+            .doOnSuccess {
+                _categories.postValue(it)
+            }
     }
 
 }

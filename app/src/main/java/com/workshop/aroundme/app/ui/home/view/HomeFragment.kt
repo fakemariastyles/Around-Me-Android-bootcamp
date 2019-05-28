@@ -23,13 +23,13 @@ import javax.inject.Inject
 class HomeFragment : Fragment(), OnHomePlaceItemClickListener {
 
     private var adapter: ModernHomeAdapter? = null
-
     @Inject
     lateinit var placeRepository: PlaceRepository
-
     @Inject
     lateinit var categoryRepository: CategoryRepository
 
+    @Inject
+    lateinit var viewModel:HomeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MyApp.component.inject(this)
@@ -48,8 +48,8 @@ class HomeFragment : Fragment(), OnHomePlaceItemClickListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        viewModel.onActivityCreated()
 
-        placeRepository.getFeaturedPlaces(::onFeaturedPlacesReady)
     }
 
     private fun onFeaturedPlacesReady(list: List<PlaceEntity>?) {
