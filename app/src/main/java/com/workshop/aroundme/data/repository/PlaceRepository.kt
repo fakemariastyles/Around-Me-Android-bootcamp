@@ -8,6 +8,7 @@ import com.workshop.aroundme.data.model.PlaceDetailEntity
 import com.workshop.aroundme.data.model.PlaceEntity
 import com.workshop.aroundme.local.datasource.PlaceLocalDataSource
 import com.workshop.aroundme.remote.datasource.PlaceRemoteDataSource
+import io.reactivex.Single
 import javax.inject.Inject
 import kotlin.concurrent.thread
 
@@ -16,19 +17,17 @@ class PlaceRepository @Inject constructor(
     private val placeRemoteDataSource: PlaceRemoteDataSource
 ) {
 
-    fun getFeaturedPlaces(success: (List<PlaceEntity>?) -> Unit) {
-        Thread {
-            val result = placeRemoteDataSource.getFeaturedPlaces()?.map { placeDto ->
+    fun getFeaturedPlaces(): Single<List<PlaceEntity>?> {
+        return Single.fromCallable {
+            placeRemoteDataSource.getFeaturedPlaces()?.map { placeDto ->
                 placeDto.toPlaceEntity()
             }
-            success(result)
-        }.start()
+        }
     }
 
-    fun getPlaceDetail(slug: String, success: (PlaceDetailEntity?) -> Unit) {
-        thread {
-            val entity = placeRemoteDataSource.getPlaceDetail(slug)?.toPlaceDetailEntity()
-            success(entity)
+    fun getPlaceDetail(slug: String): Single<PlaceDetailEntity?> {
+        return Single.fromCallable {
+            placeRemoteDataSource.getPlaceDetail(slug)?.toPlaceDetailEntity()
         }
     }
 
