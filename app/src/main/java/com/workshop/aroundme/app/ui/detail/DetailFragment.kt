@@ -52,7 +52,7 @@ class DetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         slug?.let { mySlug ->
-            placeRepository.getPlaceDetail(mySlug, ::onDetailReady)
+            placeRepository.getPlaceDetail(mySlug)
         } ?: run {
             Toast.makeText(requireContext(), "Slug must not be null", Toast.LENGTH_LONG).show()
         }

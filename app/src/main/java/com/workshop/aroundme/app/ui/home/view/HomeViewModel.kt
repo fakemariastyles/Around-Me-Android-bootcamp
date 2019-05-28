@@ -12,8 +12,8 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(
-    val categoryRepository: CategoryRepository
-    , val placeRepository: PlaceRepository
+    private val categoryRepository: CategoryRepository
+    , private val placeRepository: PlaceRepository
 ) : ViewModel() {
     private var _places = MutableLiveData<List<PlaceEntity>>()
     var places: LiveData<List<PlaceEntity>> = _places
@@ -32,9 +32,9 @@ class HomeViewModel @Inject constructor(
             .flatMap {
                 categoryRepository.getCategories()
             }.observeOn(AndroidSchedulers.mainThread())
-            .doOnSuccess {
+            .subscribe({
                 _categories.postValue(it)
-            }
+            }, {})
     }
 
 }
