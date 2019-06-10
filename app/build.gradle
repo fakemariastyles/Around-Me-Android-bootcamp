@@ -61,4 +61,6 @@ dependencies {
 
     implementation "io.reactivex.rxjava2:rxkotlin:2.3.0"
 
+    testImplementation "io.mockk:mockk:1.9"
+
 }
