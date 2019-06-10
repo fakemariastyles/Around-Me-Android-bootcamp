@@ -12,7 +12,7 @@ class LoginFragmentTest{
 
     @Test
     fun show_dialog_when_username_or_password_is_invalid(){
-
+        val scenario = launch
     }
 
 }
