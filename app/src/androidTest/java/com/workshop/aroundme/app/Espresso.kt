@@ -20,14 +20,14 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class Esspreso {
+class Espresso {
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun esspreso() {
+    fun espresso() {
         val appCompatEditText = onView(
             allOf(
                 withId(R.id.username),
