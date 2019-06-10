@@ -56,7 +56,7 @@ class LoginFragment : Fragment(), LoginContract.View {
 
     override fun showHomeFragment() {
         fragmentManager?.beginTransaction()
-            ?.replace(R.id.content_frame, HomeFragment())
+            ?.replace(R.id.loginFragment, HomeFragment())
             ?.commit()
     }
 
