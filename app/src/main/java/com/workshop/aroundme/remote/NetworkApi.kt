@@ -8,17 +8,17 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface NetworkApi {
-    @GET("/v1/featured")
+    @GET("v1/featured")
     fun getFeaturedPlaces(): Single<FeaturedPlacesResponseDto>
 
-    @GET("/v1/place/{slug}")
+    @GET("v1/place/{slug}")
     fun getPlaceDetail(@Path(value = "slug", encoded = true) slug: String)
             : Single<PlaceDetailResponseDto>
-    @GET("/v1/category")
+    @GET("v1/category")
     fun getCategories():Single<CategoryResponseDto>
 
 
     companion object {
-        const val BASE_URL = "http://restapis.xyz/around-me"
+        const val BASE_URL = "http://restapis.xyz/around-me/"
     }
 }
