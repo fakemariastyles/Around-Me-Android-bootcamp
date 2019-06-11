@@ -1,9 +1,12 @@
 package com.workshop.aroundme.data.mapper
 
 import com.workshop.aroundme.data.model.CategoryEntity
+import com.workshop.aroundme.data.model.ParentCategoryEntity
 import com.workshop.aroundme.data.model.PlaceDetailEntity
 import com.workshop.aroundme.data.model.PlaceEntity
+import com.workshop.aroundme.domain.model.Place
 import com.workshop.aroundme.local.model.LocalPlace
+import com.workshop.aroundme.remote.model.response.Category
 import com.workshop.aroundme.remote.model.response.CategoryDto
 import com.workshop.aroundme.remote.model.response.DetailResponseDto
 import com.workshop.aroundme.remote.model.response.PlaceDto
@@ -49,5 +52,22 @@ fun CategoryDto.toCategoryEntity() = CategoryEntity(
     id = id,
     name = name,
     icon = icon
+)
+
+
+fun CategoryEntity.toCategory() = Category(
+    id = id,
+    name = name,
+    icon = icon
+)
+
+fun PlaceEntity.toPlace() = Place(
+    name = name,
+    address = address,
+    likes = likes,
+    imageUrl = imageUrl,
+    isFavorite = isFavorite,
+    placeId = placeId,
+    slug = slug
 )
 
