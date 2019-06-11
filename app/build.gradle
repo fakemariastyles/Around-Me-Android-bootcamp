@@ -67,16 +67,7 @@ dependencies {
     // Testing dependencies
 
 
-    testImplementation 'junit:junit:4.12'
-    testImplementation "io.mockk:mockk:1.9.3"
 
-
-    testImplementation("androidx.test:monitor:1.2.0-beta01")
-    testImplementation("androidx.test:runner:1.2.0-beta01")
-    testImplementation("androidx.test:rules:1.2.0-beta01")
-    testImplementation("androidx.test.ext:junit:1.1.1-beta01")
-    testImplementation("androidx.test.ext:truth:1.2.0-beta01")
-    testImplementation("androidx.test:core:1.2.0-beta01")
 
 
     implementation("androidx.test:core:1.2.0-beta01")
@@ -90,12 +81,28 @@ dependencies {
     // Set this dependency to use JUnit 4 rules
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
 
-    androidTestImplementation("androidx.test:monitor:1.2.0-beta01")
-    androidTestImplementation("androidx.test:runner:1.2.0-beta01")
-    androidTestImplementation("androidx.test:rules:1.2.0-beta01")
+    //test
+    androidTestImplementation("androidx.test:monitor:$testLibraries.androidXTestCore")
+    androidTestImplementation("androidx.test:runner:$testLibraries.androidXTestCore")
+    androidTestImplementation("androidx.test:rules:$testLibraries.androidXTestCore")
     androidTestImplementation("androidx.test.ext:junit:1.1.1-beta01")
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    testImplementation("androidx.test:core:1.2.0-beta01")
+    testImplementation("androidx.test.ext:truth:1.2.0-beta01")
+    testImplementation 'junit:junit:4.12'
+    testImplementation "io.mockk:mockk:1.9.3"
+
+
     implementation "androidx.test:core:1.2.0"
+
+
+
+
+    //retrofit
+    api "com.squareup.retrofit2:retrofit:$libraries.retrofit"
+    api "com.squareup.retrofit2:adapter-rxjava2:$libraries.retrofit"
+    api "com.squareup.retrofit2:converter-gson:$libraries.retrofit"
+    api "com.squareup.okhttp3:okhttp:$libraries.okHttp"
 
 }
