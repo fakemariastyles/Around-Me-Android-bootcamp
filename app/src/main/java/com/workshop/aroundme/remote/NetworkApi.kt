@@ -1,5 +1,6 @@
 package com.workshop.aroundme.remote
 
+import com.workshop.aroundme.remote.model.response.CategoryResponseDto
 import com.workshop.aroundme.remote.model.response.FeaturedPlacesResponseDto
 import com.workshop.aroundme.remote.model.response.PlaceDetailResponseDto
 import io.reactivex.Single
@@ -13,6 +14,8 @@ interface NetworkApi {
     @GET("/v1/place/{slug}")
     fun getPlaceDetail(@Path(value = "slug", encoded = true) slug: String)
             : Single<PlaceDetailResponseDto>
+    @GET("/v1/category")
+    fun getCategories():Single<CategoryResponseDto>
 
 
     companion object {

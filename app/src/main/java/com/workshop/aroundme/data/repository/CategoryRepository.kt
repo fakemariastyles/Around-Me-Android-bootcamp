@@ -7,9 +7,7 @@ import javax.inject.Inject
 
 class CategoryRepository @Inject constructor(private val categoryRemoteDataSource: CategoryRemoteDataSource) {
 
-    fun getCategories(): Single<List<ParentCategoryEntity>> {
-        return Single.fromCallable {
-            categoryRemoteDataSource.getCategories()
-        }
+    fun getCategories(): Single<List<ParentCategoryEntity>?> {
+        return categoryRemoteDataSource.getCategories()
     }
 }
