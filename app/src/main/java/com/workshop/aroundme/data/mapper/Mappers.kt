@@ -1,12 +1,14 @@
 package com.workshop.aroundme.data.mapper
 
 import com.workshop.aroundme.data.model.CategoryEntity
+import com.workshop.aroundme.data.model.ParentCategoryEntity
 import com.workshop.aroundme.data.model.PlaceDetailEntity
 import com.workshop.aroundme.data.model.PlaceEntity
+import com.workshop.aroundme.domain.model.Category
+import com.workshop.aroundme.domain.model.ParentCategory
 import com.workshop.aroundme.domain.model.Place
 import com.workshop.aroundme.domain.model.PlaceDetail
 import com.workshop.aroundme.local.model.LocalPlace
-import com.workshop.aroundme.remote.model.response.Category
 import com.workshop.aroundme.remote.model.response.CategoryDto
 import com.workshop.aroundme.remote.model.response.DetailResponseDto
 import com.workshop.aroundme.remote.model.response.PlaceDto
@@ -79,3 +81,5 @@ fun PlaceDetailEntity.toPlaceDetail() = PlaceDetail(
     location = location,
     tags = tags
 )
+
+
