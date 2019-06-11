@@ -11,7 +11,6 @@ import javax.inject.Inject
 class CategoryRemoteDataSource @Inject constructor(
     private val networkApi: NetworkApi
 ) {
-
 //    fun getCategories(): List<ParentCategoryEntity>? {
 //        return categoryService.getCategoriesResponse()
 //            .response
@@ -25,8 +24,6 @@ class CategoryRemoteDataSource @Inject constructor(
 //                )
 //            }
 //    }
-
-
     fun getCategories(): Single<List<ParentCategoryEntity>?> {
         return networkApi.getCategories().map {
             it.response

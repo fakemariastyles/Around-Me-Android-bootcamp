@@ -9,7 +9,7 @@ import retrofit2.http.Path
 
 interface NetworkApi {
     @GET("/v1/featured")
-    fun getFeaturedPlaces(): Single<List<FeaturedPlacesResponseDto>>
+    fun getFeaturedPlaces(): Single<FeaturedPlacesResponseDto>
 
     @GET("/v1/place/{slug}")
     fun getPlaceDetail(@Path(value = "slug", encoded = true) slug: String)
