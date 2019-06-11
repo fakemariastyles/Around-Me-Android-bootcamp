@@ -18,17 +18,18 @@ class PlaceRepository @Inject constructor(
 ) {
 
     fun getFeaturedPlaces(): Single<List<PlaceEntity>?> {
-        return Single.fromCallable {
-            placeRemoteDataSource.getFeaturedPlaces()?.map { placeDto ->
+        return placeRemoteDataSource.getFeaturedPlaces().map { list ->
+            list.map { placeDto ->
                 placeDto.toPlaceEntity()
             }
         }
     }
 
     fun getPlaceDetail(slug: String): Single<PlaceDetailEntity?> {
-        return Single.fromCallable {
-            placeRemoteDataSource.getPlaceDetail(slug)?.toPlaceDetailEntity()
-        }
+        return placeRemoteDataSource.getPlaceDetail(slug)
+            .map { detailResponseDto ->
+                detailResponseDto.toPlaceDetailEntity()
+            }
     }
 
     @WorkerThread
